@@ -4,8 +4,12 @@ import User from "../models/user.model.js"
 
 export const signup = async (req, res) => {
   try {
-    console.log("Request body:", req.body); // Aggiungi questo log
+    
     const { username, nickname, password, confirmPassword, gender } = req.body
+
+    if(!password) {
+      return res.status(400).json({ error: "Please enter a password" })
+    }
 
     if (password !== confirmPassword) {
       return res.status(400).json({ error: "Passwords don't Match" })
