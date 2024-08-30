@@ -64,12 +64,16 @@ const handleInputErrors = ({
   confirmPassword,
   gender,
 }) => {
-  if (!username || !nickname || !password || !confirmPassword || !gender) {
-    toast.error("Please fill in all fields")
+  if (!username) {
+    toast.error("Please enter your username")
   }
 
-  if (password !== confirmPassword) {
-    toast.error("Passwords do not match")
+  if (!nickname) {
+    toast.error("Please enter your nickname.")
+  }
+
+  if (!gender) {
+    toast.error("Please select your gender.")
   }
 
   if (password.length < 6) {
