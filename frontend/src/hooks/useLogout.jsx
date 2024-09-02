@@ -1,13 +1,13 @@
 import { useState } from "react"
-import { useAuthContext } from "../context/AuthContext"
+import { useAuthContext } from "../context/GlobalContext"
 import toast from "react-hot-toast"
 
 const useLogout = () => {
-  const [loading, setLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const { setAuthUser } = useAuthContext()
 
   const logout = async () => {
-    setLoading(true)
+    setIsLoading(true)
 
     try {
       const res = await fetch("/api/auth/logout", {
@@ -27,11 +27,11 @@ const useLogout = () => {
     } catch (error) {
       toast.error(error.message)
     } finally {
-      setLoading(false)
+      setIsLoading(false)
     }
   }
 
-  return { loading, logout }
+  return { isLoading, logout }
 }
 
 export default useLogout

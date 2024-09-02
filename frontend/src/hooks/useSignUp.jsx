@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 
 const useSignUp = () => {
-  const [loading, setLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const navigate = useNavigate()
 
   const signup = async ({
@@ -22,7 +22,7 @@ const useSignUp = () => {
     })
     if (!success) return
 
-    setLoading(true)
+    setIsLoading(true)
 
     try {
       const res = await fetch("/api/auth/signup", {
@@ -48,11 +48,11 @@ const useSignUp = () => {
     } catch (error) {
       toast.error(error.message)
     } finally {
-      setLoading(false)
+      setIsLoading(false)
     }
   }
 
-  return { loading, signup }
+  return { isLoading, signup }
 }
 
 export default useSignUp

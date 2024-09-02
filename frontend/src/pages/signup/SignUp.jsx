@@ -12,7 +12,7 @@ const SignUp = () => {
     gender: "",
   })
 
-  const { loading, signup } = useSignUp()
+  const { isLoading, signup } = useSignUp()
 
   const handleCheckboxChange = (gender) => {
     setInputs({ ...inputs, gender })
@@ -126,9 +126,9 @@ const SignUp = () => {
           <div>
             <button type="submit"
               className="btn btn-block btn-sm mt-2 border-neutral-700 bg-emerald-200 hover:bg-neutral-950 hover:border-neutral-700 hover:text-white"
-              disabled={loading}
+              disabled={isLoading}
             >
-              {loading ? (
+              {isLoading ? (
                 <span className="loading loading-spinner"></span>
               ) : (
                 "Sign Up"

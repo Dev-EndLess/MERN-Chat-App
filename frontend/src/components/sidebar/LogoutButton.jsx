@@ -2,13 +2,13 @@ import { BiLogOut } from "react-icons/bi"
 import useLogout from "../../hooks/useLogout"
 
 const LogoutButton = () => {
-  const { loading, logout } = useLogout()
+  const { isLoading, logout } = useLogout()
 
   return (
     <div>
-      {!loading ? (
+      {!isLoading ? (
         <div
-          className="flex gap-2 mb-2 text-emerald-200 cursor-pointer hover:text-red-500"
+          className="flex gap-2 mb-4 text-gray-200 cursor-pointer hover:text-red-500"
           onClick={logout}
         >
           <BiLogOut className="w-8 h-8" />

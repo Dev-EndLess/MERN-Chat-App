@@ -6,7 +6,7 @@ const Login = () => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
 
-  const { loading, login } = useLogin()
+  const { isLoading, login } = useLogin()
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -62,7 +62,7 @@ const Login = () => {
 
           <div>
             <button className="btn btn-block btn-sm mt-2 border-neutral-700 bg-emerald-200 hover:bg-neutral-950 hover:border-neutral-700 hover:text-white">
-              {loading ? (
+              {isLoading ? (
                 <span className="loading loading-spinner "></span>
               ) : (
                 "Login"
