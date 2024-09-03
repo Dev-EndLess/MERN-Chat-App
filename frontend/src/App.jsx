@@ -4,12 +4,13 @@ import Login from "./pages/login/Login"
 import Home from "./pages/home/Home"
 import { Toaster } from "react-hot-toast"
 import { Navigate, Route, Routes } from "react-router-dom"
-import { useAuthContext } from "./context/AuthContext"
+import { useAuthContext } from "./context/GlobalContext"
 
 function App() {
   const { authUser } = useAuthContext()
   return (
-    <div className="w-full h-screen p-4">
+    // <div className="w-full h-screen p-4">
+    <div className="p-4 flex justify-center items-center h-screen">
       <Routes>
         <Route
           exact

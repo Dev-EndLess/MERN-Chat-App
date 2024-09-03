@@ -1,40 +1,50 @@
-const Message = () => {
+import {
+  useAuthContext,
+  useConversationsContext,
+} from "../../context/GlobalContext"
+import { extractTime } from "../../utils/extractTime"
+
+const Message = ({ message }) => {
+  const { authUser } = useAuthContext()
+  const { selectedConversation } = useConversationsContext()
+  const formattedTime = extractTime(message.createdAt)
+  const isSentByCurrentUser = message.senderId === authUser._id
+  const messageAlignment = isSentByCurrentUser ? "chat-end" : "chat-start"
+  const profileAvatar = isSentByCurrentUser
+    ? authUser.avatar
+    : selectedConversation?.avatar
+  const backgroundProfileAvatar = isSentByCurrentUser
+    ? "bg-emerald-200"
+    : "bg-gray-300"
+  const myMessageBackground = isSentByCurrentUser
+    ? "bg-emerald-200"
+    : "bg-gray-300"
+
+  console.log(message)
+
   return (
     <div>
-      <div className="chat chat-start">
+      <div className={`chat ${messageAlignment}`}>
         <div className="chat-image avatar">
           <div className="rounded-xl w-16">
             <img
-              alt="Tailwind CSS chat bubble component"
-              src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+              className={`bg-emerald-200" alt="Profile Avatar" ${backgroundProfileAvatar}`}
+              src={profileAvatar}
             />
           </div>
         </div>
         <div className="chat-header text-white">
-          Obi-Wan Kenobi
-          <time className="text-xs opacity-50">12:45</time>
+          {message.senderId}
         </div>
-        <div className="chat-bubble">You were the Chosen One!</div>
-        <div className="chat-footer opacity-50 text-white">Delivered</div>
-      </div>
-      <div className="chat chat-end">
-        <div className="chat-image avatar">
-          <div className="rounded-xl w-16">
-            <img
-              alt="Tailwind CSS chat bubble component"
-              src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-            />
-          </div>
+        <div
+          className={`chat-bubble text-black font-semibold ${myMessageBackground}`}
+        >
+          {message.text}
         </div>
-        <div className="chat-header text-white">
-          Anakin
-          <time className="text-xs opacity-50">12:46</time>
-        </div>
-        <div className="chat-bubble">I hate you!</div>
-        <div className="chat-footer opacity-50 text-white">Seen at 12:46</div>
+        <div className="chat-footer opacity-50 text-white">{formattedTime}</div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Message;
+export default Message
