@@ -13,4 +13,4 @@ const generateJwtToken = (userId, res) => {
   })
 }
 
-export default generateJwtToken;
+export default generateJwtToken
