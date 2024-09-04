@@ -13,12 +13,13 @@ export const useConversationsContext = () => {
 export const GlobalContextProvider = ({ children }) => {
   /* * * Auth * * */
   const [authUser, setAuthUser] = useState(
-    JSON.parse(localStorage.getItem("auth-user")) || null
+    JSON.parse(localStorage.getItem("auth-user")) || null,
   )
 
   /* * * Conversations * * */
   const [selectedConversation, setSelectedConversation] = useState(null)
   const [messages, setMessages] = useState([])
+  const [filteredConversations, setFilteredConversations] = useState([])
 
   return (
     <GlobalContext.Provider
@@ -29,6 +30,8 @@ export const GlobalContextProvider = ({ children }) => {
         setSelectedConversation,
         messages,
         setMessages,
+        filteredConversations,
+        setFilteredConversations,
       }}
     >
       {children}
