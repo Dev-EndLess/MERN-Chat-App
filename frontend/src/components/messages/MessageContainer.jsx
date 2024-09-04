@@ -28,7 +28,7 @@ const MessageContainer = () => {
           <MessageInput />
         </div>
       ) : (
-          <UnselectedChat />
+        <UnselectedChat />
       )}
     </div>
   )

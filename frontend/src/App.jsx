@@ -9,13 +9,12 @@ import { useAuthContext } from "./context/GlobalContext"
 function App() {
   const { authUser } = useAuthContext()
   return (
-    // <div className="w-full h-screen p-4">
     <div className="p-4 flex justify-center items-center h-screen">
       <Routes>
         <Route
           exact
-          path="/"
-          element={authUser ? <Home /> : <Navigate to="/login" />}
+          path="/login"
+          element={authUser ? <Navigate to="/" /> : <Login />}
         />
         <Route
           exact
@@ -24,8 +23,8 @@ function App() {
         />
         <Route
           exact
-          path="/login"
-          element={authUser ? <Navigate to="/" /> : <Login />}
+          path="/"
+          element={authUser ? <Home /> : <Navigate to="/login" />}
         />
       </Routes>
       <Toaster position="bottom-center" />

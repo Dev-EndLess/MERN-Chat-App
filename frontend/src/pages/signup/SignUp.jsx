@@ -124,7 +124,8 @@ const SignUp = () => {
           </Link>
 
           <div>
-            <button type="submit"
+            <button
+              type="submit"
               className="btn btn-block btn-sm mt-2 border-neutral-700 bg-emerald-200 hover:bg-neutral-950 hover:border-neutral-700 hover:text-white"
               disabled={isLoading}
             >

@@ -4,11 +4,11 @@ import SearchInput from "./SearchInput"
 
 const Sidebar = () => {
   return (
-    <div className="w-full">
+    <div>
       <SearchInput />
-      <hr className="border-slate-500 my-4" />
+      <hr className="border-emerald-200 my-4 opacity-60" />
       <Conversations />
-      <hr className="border-slate-500 my-4" />
+      <hr className="border-emerald-200 my-4 opacity-60" />
       <LogoutButton />
     </div>
   )

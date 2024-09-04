@@ -1,6 +1,6 @@
 import toast from "react-hot-toast"
 import { useState } from "react"
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
 
 const useSignUp = () => {
   const [isLoading, setIsLoading] = useState(false)
@@ -41,10 +41,9 @@ const useSignUp = () => {
       if (data.error) {
         throw new Error(data.error)
       }
-      
+
       toast.success("Sign up Successful!")
       navigate("/login")
-
     } catch (error) {
       toast.error(error.message)
     } finally {
