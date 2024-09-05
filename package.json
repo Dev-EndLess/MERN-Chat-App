@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon backend/server.js"
+    "server": "nodemon backend/server.js",
+    "start": "node backend/server.js",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
+    "format": "prettier --write ."
   },
   "type": "module",
   "keywords": [],
@@ -21,6 +24,8 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
-    "nodemon": "^3.1.4"
+    "eslint": "^9.9.1",
+    "nodemon": "^3.1.4",
+    "prettier": "^3.3.3"
   }
 }

@@ -1,3 +1,4 @@
+import path from "path"
 import express from "express"
 import dotenv from "dotenv"
 import cookieParser from "cookie-parser"
@@ -8,8 +9,9 @@ import messageRouters from "./routes/message.routes.js"
 import userRouters from "./routes/user.routes.js"
 import { app, server } from "./socket/socket.js"
 
-// const app = express()
 const PORT = process.env.PORT || 5000
+
+const __dirname = path.resolve()
 
 dotenv.config()
 
@@ -20,11 +22,10 @@ app.use("/api/auth", authRouters)
 app.use("/api/messages", messageRouters)
 app.use("/api/users", userRouters)
 
-app.use((req, res, next) => {
-  console.log("Request Method:", req.method)
-  console.log("Request Headers:", req.headers)
-  console.log("Request Body:", req.body)
-  next()
+/* * Serve static files/assets from the frontend build directory * */
+app.use(express.static(path.join(__dirname, "/frontend/dist")))
+app.get("*", (req, res) => {
+	res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
 })
 
 server.listen(PORT, () => {
