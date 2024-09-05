@@ -14,10 +14,10 @@ const Message = ({ message }) => {
     ? authUser.avatar
     : selectedConversation?.avatar
   const backgroundProfileAvatar = isSentByCurrentUser
-    ? "bg-emerald-200"
+    ? "bg-emerald-100"
     : "bg-gray-300"
   const myMessageBackground = isSentByCurrentUser
-    ? "bg-emerald-200"
+    ? "bg-emerald-100"
     : "bg-gray-300"
 
   console.log(message)
@@ -28,20 +28,19 @@ const Message = ({ message }) => {
         <div className="chat-image avatar">
           <div className="rounded-xl w-16">
             <img
-              className={`bg-emerald-200" alt="Profile Avatar" ${backgroundProfileAvatar}`}
+              alt="Profile Avatar"
+              className={`bg-emerald-100" ${backgroundProfileAvatar}`}
               src={profileAvatar}
             />
           </div>
         </div>
-        <div className="chat-header text-white">
-          {message.senderId}
-        </div>
+        <div className="chat-header text-white">{message.senderId}</div>
         <div
           className={`chat-bubble text-black font-semibold ${myMessageBackground}`}
         >
           {message.text}
         </div>
-        <div className="chat-footer opacity-50 text-white">{formattedTime}</div>
+        <div className="chat-footer text-gray-200">{formattedTime}</div>
       </div>
     </div>
   )
