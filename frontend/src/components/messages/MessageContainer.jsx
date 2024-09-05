@@ -17,9 +17,9 @@ const MessageContainer = () => {
     <div className="h-full">
       {selectedConversation ? (
         <div className="w-full h-full">
-          <div className="bg-emerald-100 rounded-t-md px-4 py-2 mb-2 mt-0">
-            <span className="label-text">To : </span>
-            <span className="text-gray-900 font-bold">
+          <div className="bg-gradient-to-l from-neutral-900 via-emerald-200 to-neutral-900 rounded-t-md px-4 py-2 mb-2 mt-0">
+            <span className="text-emerald-200">To : </span>
+            <span className="text-emerald-200 font-bold">
               {selectedConversation.nickname}
             </span>
           </div>

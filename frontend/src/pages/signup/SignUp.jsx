@@ -34,7 +34,7 @@ const SignUp = () => {
     <div className="flex flex-col h-full items-center justify-center max-w-96 mx-auto">
       <div className="w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10">
         <h1 className="text-3xl font-semibold text-center text-gray-300 mb-8">
-          Sign Up to <span className="text-emerald-200"> ChatApp</span>
+          Sign Up <span className="text-emerald-200"> MERN </span> Chat
         </h1>
 
         <form onSubmit={handleSubmit}>
