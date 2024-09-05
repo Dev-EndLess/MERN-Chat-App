@@ -3,9 +3,11 @@ import { TiMessages } from "react-icons/ti"
 import useGetMessages from "../../hooks/useGetMessages"
 import MessageSkeleton from "../skeleton/MessageSkeleton"
 import Message from "./Message"
+import { useListenMessages } from "../../hooks/useListenMessages"
 
 const Messages = () => {
   const { isLoading, messages } = useGetMessages()
+  useListenMessages()
   const lastMessageRef = useRef()
 
   useEffect(() => {
