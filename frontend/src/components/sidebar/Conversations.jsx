@@ -7,7 +7,7 @@ function Conversations() {
   const { isLoading, filteredConversations } = useConversationsContext()
 
   return (
-    <div className="flex flex-col py-2 h-96 overflow-y-auto">
+    <div className="flex md:h-[380px] flex-col py-2 overflow-y-auto">
       {filteredConversations.map((conversation, index) => (
         <Conversation key={index} conversation={conversation} />
       ))}

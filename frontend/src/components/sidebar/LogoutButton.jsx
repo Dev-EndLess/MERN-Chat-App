@@ -5,14 +5,16 @@ const LogoutButton = () => {
   const { isLoading, logout } = useLogout()
 
   return (
-    <div>
+    <div>      
       {!isLoading ? (
         <div
-          className="flex gap-2 mb-4 text-gray-200 cursor-pointer hover:text-red-500"
+          className="gap-2 text-gray-200 cursor-pointer hover:text-red-500"
           onClick={logout}
         >
-          <BiLogOut className="w-8 h-8" />
-          <h1 className="text-lg font-semibold">Log Out</h1>
+          <div className="flex gap-2">
+            <BiLogOut className="w-8 h-8" />
+            <h2 className="text-xl font-semibold">Log Out</h2>
+          </div>
         </div>
       ) : (
         <span className="loading loading-spinner"></span>
