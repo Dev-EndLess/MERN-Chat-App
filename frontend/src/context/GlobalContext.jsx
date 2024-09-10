@@ -20,6 +20,7 @@ export const GlobalContextProvider = ({ children }) => {
   const [selectedConversation, setSelectedConversation] = useState(null)
   const [messages, setMessages] = useState([])
   const [filteredConversations, setFilteredConversations] = useState([])
+  const [isHide, setIsHide] = useState(true)
 
   return (
     <GlobalContext.Provider
@@ -32,6 +33,8 @@ export const GlobalContextProvider = ({ children }) => {
         setMessages,
         filteredConversations,
         setFilteredConversations,
+        isHide,
+        setIsHide
       }}
     >
       {children}

@@ -3,15 +3,20 @@ import UnselectedChat from "./UnselectedChat"
 import MessageInput from "./MessageInput"
 import Messages from "./Messages"
 import { useEffect } from "react"
+import { IoReturnDownBackSharp } from "react-icons/io5"
 
 const MessageContainer = () => {
-  const { selectedConversation, setSelectedConversation } =
+  const { selectedConversation, setSelectedConversation, setIsHide } =
     useConversationsContext()
 
-  useEffect(() => {
-    /* * unmount component * */
-    return () => setSelectedConversation(null)
-  }, [setSelectedConversation])
+  // useEffect(() => {
+  //   /* * unmount component * */
+  //   return () => setSelectedConversation(null)
+  // }, [])
+
+  const handleHide = () => {
+    setIsHide(true)
+  }
 
   return (
     <div className="h-full">
@@ -22,6 +27,12 @@ const MessageContainer = () => {
             <span className="text-emerald-200 font-bold">
               {selectedConversation.nickname}
             </span>
+            <div
+              className="md:hidden absolute mx-2 right-2 top-2 cursor-pointer"
+              onClick={handleHide}
+            >
+              <IoReturnDownBackSharp className="text-2xl font-bold text-emerald-200" />
+            </div>
           </div>
 
           <Messages />

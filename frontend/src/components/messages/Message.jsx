@@ -20,8 +20,6 @@ const Message = ({ message }) => {
     ? "bg-emerald-100"
     : "bg-gray-300"
 
-  console.log(message)
-
   return (
     <div>
       <div className={`chat ${messageAlignment}`}>

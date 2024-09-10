@@ -1,9 +1,7 @@
-import useGetConversations from "../../hooks/useGetConversations"
 import Conversation from "./Conversation"
 import { useConversationsContext } from "../../context/GlobalContext"
 
 function Conversations() {
-  // const { isLoading, conversations } = useGetConversations()
   const { isLoading, filteredConversations } = useConversationsContext()
 
   return (
