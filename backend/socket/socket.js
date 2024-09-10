@@ -7,8 +7,8 @@ const server = http.createServer(app)
 
 const io = new Server(server, {
   cors: {
-    // origin: ["http://localhost:3000"],
-    origin: ["https://mern-chat-app-2pp4.onrender.com"],
+    origin: "https://mern-chat-app-2pp4.onrender.com",
+    // origin: "http://localhost:3000", // uncomment for development mode
     methods: ["GET", "POST"],
   },
 })
