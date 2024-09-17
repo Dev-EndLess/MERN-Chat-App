@@ -11,18 +11,18 @@ export const useSocketContext = () => {
 export const SocketContextProvider = ({ children }) => {
   const [socket, setSocket] = useState(null)
   const [onlineUsers, setOnlineUsers] = useState([])
+  const [typingUser, setTypingUser] = useState(null)
   const { authUser } = useAuthContext()
 
   useEffect(() => {
     if (authUser) {
-
       const productionSocketUrl = "https://mern-chat-app-2pp4.onrender.com"
       // const developmentSocketUrl = "http://localhost:5000" // uncomment for development mode
 
       const socket = io(productionSocketUrl, {
         query: {
           userId: authUser._id,
-        }
+        },
       })
 
       setSocket(socket)
@@ -32,8 +32,17 @@ export const SocketContextProvider = ({ children }) => {
         setOnlineUsers(users)
       })
 
+      // ascolto dell'evento "typing" per vedere chi sta scrivendo
+      socket.on("typing", (userId) => {
+        setTypingUser(userId)
+      })
+
+      // ascolto dell'evento "stop typing" per sapere quando l'utente ha smesso di scrivere
+      socket.on("stop typing", () => {
+        setTypingUser(null)
+      })
+
       return () => socket.close()
-      
     } else {
       if (socket) {
         socket.close()
@@ -43,7 +52,7 @@ export const SocketContextProvider = ({ children }) => {
   }, [authUser])
 
   return (
-    <SocketContext.Provider value={{ socket, onlineUsers }}>
+    <SocketContext.Provider value={{ socket, onlineUsers, typingUser }}>
       {children}
     </SocketContext.Provider>
   )

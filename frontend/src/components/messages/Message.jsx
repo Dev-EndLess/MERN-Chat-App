@@ -32,13 +32,15 @@ const Message = ({ message }) => {
             />
           </div>
         </div>
+
         <div className="chat-header text-white">{message.senderId}</div>
         <div
-          className={`chat-bubble text-black font-semibold ${myMessageBackground}`}
+          className={`flex chat-bubble text-black font-semibold ${myMessageBackground}`}
         >
-          {message.text}
+          <h3>{message.text}</h3>
         </div>
-        <div className="chat-footer text-gray-200">{formattedTime}</div>
+
+        <h4 className="text-gray-400 font-semibold mt-1">{formattedTime}</h4>
       </div>
     </div>
   )
