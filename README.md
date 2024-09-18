@@ -1,4 +1,4 @@
-# MERN Chat App MVP
+# MERN Chat App Demo
 
 <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/mongodb-colored.svg" width="45" height="45" alt="MongoDB" /></a>
 <a href="https://expressjs.com/" target="_blank" rel="noreferrer"><img src="https://adware-technologies.s3.amazonaws.com/uploads/technology/thumbnail/20/express-js.png" width="48" height="48" alt="Express" /></a>
@@ -57,15 +57,16 @@ This project is a full-stack chat application built using modern technologies li
     npm run dev
     ```
 
----
+##
 
 ### License 
 
  ⚖️ MIT License
 
----
-
+##
 
 ### 🚀 Go to [Live Chat App](https://mern-chat-app-2pp4.onrender.com/login)
 
-
+![1](https://github.com/user-attachments/assets/f793cba1-80d7-4b13-b8a4-02316c1a125e)
+![2](https://github.com/user-attachments/assets/c0a0f96d-5408-4ebb-9354-4ad38d0cf379)
+![3](https://github.com/user-attachments/assets/7276dfc8-98a8-47e6-be36-e722003d64aa)
