@@ -28,34 +28,61 @@ This project is a full-stack chat application built using modern technologies li
 
 ## ⬇️ Installation ⬇️
 
-1️⃣ Clone repository and install Frontend and Backend dependency
+1️⃣ Clone repository in your local machine
 
-    ```
-    git clone https://github.com/Dev-EndLess/MERN-Chat-App.git
-    cd MERN-Chat-App
+```bash
+git clone https://github.com/Dev-EndLess/MERN-Chat-App.git
+```
 
-    cd backend npm install
-    cd frontend npm install
-    ```
+After that you can install the dependencies in frontend and backend directory (npm install)
 
-2️⃣ Create a .env file to configure environment variables
+/MERN-Chat-App/backend
 
-    ```
-    PORT=<8000>
-    MONGO_URI=<your MongoDB url>
-    JWT_SECRET=<a secret key>
-    NODE_ENV=development
-    ```
+/MERN-Chat-App/frontend
 
-3️⃣ Launch the Application
+---
 
-    ```
-    cd backend
-    npm run server
 
-    cd frontend
-    npm run dev
-    ```
+2️⃣ Now create a .env file to configure environment variables
+
+```
+PORT=8000
+MONGO_DB_URI=mongodb+srv://username:db_password@cluster0.vo0ln.mongodb.net/MERN_Chat_App?retryWrites=true&w=majority&appName=Cluster0
+JWT_SECRET="a secret key"
+NODE_ENV=development
+```
+
+⚠️ Note: For MONGO_DB_URI, you need replace "username" and "db_password" with your MongoDB credentials
+
+⚠️ Note: Nota: Il JWT_SECRET è una chiave segreta utilizzata per firmare i JSON Web Tokens (JWT). È necessario per l'autenticazione degli utenti nel sistema. Puoi generare una chiave segreta casuale nel terminale con il seguente comando:
+
+```
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+```
+
+---
+
+3️⃣ Prepare app for development Mode
+
+Go to backend/socket/socket.js and just delete or comment line 10 
+
+![socket](https://github.com/user-attachments/assets/9d849664-9c81-43ec-b96c-97c15414a385)
+
+Go to frontend/src/context/SocketContext.jsx and delete or comment line 19 and change variable at line 22 with developmentSocketUrl
+
+![socketcontext](https://github.com/user-attachments/assets/e3f3d12d-8f28-4206-8e0c-6ac315165e9d)
+
+ 
+4️⃣ Launch the Application 
+
+/MERN-Chat-App/backend
+```
+npm run server
+```
+/MERN-Chat-App/frontend
+```
+npm run dev
+```
 
 ##
 
